@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiArrowRight, FiArrowLeft, FiHome, FiGrid, FiLayers, FiInfo, FiPhone } from "react-icons/fi";
+import logo from "../assets/hero-mockup.png";
 
 const Navbar = ({ role, onReset, onLogin }) => {
   const [isScrolled, setIsScrolled] = useState(false);

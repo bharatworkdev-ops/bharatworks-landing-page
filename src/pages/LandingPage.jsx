@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   FaHardHat, FaBriefcase, FaArrowRight, FaCheckCircle,
   FaHandshake, FaCommentDots, FaPhoneAlt, FaEnvelope, FaUsers,
   FaRocket, FaMapMarkerAlt, FaHeart, FaGlobe, FaBolt,
@@ -9,6 +9,7 @@ import {
 import { FiGlobe } from 'react-icons/fi';
 import { useNavigate, Link } from 'react-router-dom';
 import About from '../components/About';
+import logo from '../assets/hero-mockup.png';
 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -64,7 +65,7 @@ const LandingPage = () => {
           className="text-center mb-12 relative z-10"
         >
           <div className="inline-flex items-center gap-3 mb-6 bg-card px-6 py-2 rounded-full shadow-sm border border-border-light">
-             <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-action to-[#ff9800] flex items-center justify-center text-white font-bold text-lg">B</div>
+             <img src={logo} alt="BharatWork" className="w-8 h-8 rounded-full object-cover" />
              <span className="font-bold text-text-primary tracking-wide">Bharat<span className="text-action">Work</span></span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text-primary mb-4 tracking-tight">
@@ -597,9 +598,12 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <h3 className="text-xl font-bold text-text-primary mb-4">
-            Bharat<span className="text-action">Work</span>
-          </h3>
+          <div className="flex items-center gap-2 mb-4">
+            <img src={logo} alt="BharatWork" className="w-8 h-8 rounded-full object-cover" />
+            <h3 className="text-xl font-bold text-text-primary">
+              Bharat<span className="text-action">Work</span>
+            </h3>
+          </div>
           <p className="text-text-secondary text-sm">
             India's most accessible and inclusive job ecosystem, ensuring that no worker is left behind.
           </p>
