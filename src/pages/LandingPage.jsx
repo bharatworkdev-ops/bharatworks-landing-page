@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaHardHat, FaBriefcase, FaArrowRight, FaCheckCircle,
@@ -9,7 +9,7 @@ import {
 import { FiGlobe } from 'react-icons/fi';
 import { useNavigate, Link } from 'react-router-dom';
 import About from '../components/About';
-import logo from '../assets/hero-mockup.png';
+import logo from '../assets/logo.jpeg';
 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -20,6 +20,10 @@ import DownloadSection from '../components/DownloadSection';
 const LandingPage = () => {
   const [role, setRole] = useState(null); // 'employer' | 'labour' | null
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [role]);
 
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -65,7 +69,7 @@ const LandingPage = () => {
           className="text-center mb-12 relative z-10"
         >
           <div className="inline-flex items-center gap-3 mb-6 bg-card px-6 py-2 rounded-full shadow-sm border border-border-light">
-             <img src={logo} alt="BharatWork" className="w-8 h-8 rounded-full object-cover" />
+             <img src={logo} alt="BharatWork" className="w-8 h-8 rounded-full object-contain p-1 bg-white" />
              <span className="font-bold text-text-primary tracking-wide">Bharat<span className="text-action">Work</span></span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text-primary mb-4 tracking-tight">
@@ -599,7 +603,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src={logo} alt="BharatWork" className="w-8 h-8 rounded-full object-cover" />
+            <img src={logo} alt="BharatWork" className="w-8 h-8 rounded-full object-contain p-1 bg-white" />
             <h3 className="text-xl font-bold text-text-primary">
               Bharat<span className="text-action">Work</span>
             </h3>

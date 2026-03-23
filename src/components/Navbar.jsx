@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX, FiArrowRight, FiArrowLeft, FiHome, FiGrid, FiLayers, FiInfo, FiPhone } from "react-icons/fi";
+import { FiMenu, FiX, FiArrowRight, FiArrowLeft, FiHome, FiGrid, FiLayers, FiInfo, FiPhone, FiUsers } from "react-icons/fi";
 import logo from "../assets/hero-mockup.png";
+import logoImg from "../assets/logo.jpeg";
 
 const Navbar = ({ role, onReset, onLogin }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +22,7 @@ const Navbar = ({ role, onReset, onLogin }) => {
     { name: "Features", href: "/#features", icon: <FiGrid />, id: "features" },
     { name: "Platform", href: "/#apps", icon: <FiLayers />, id: "apps" },
     { name: "About", href: "/about", icon: <FiInfo />, id: "about" },
+    { name: "Team", href: "/team", icon: <FiUsers />, id: "team" },
     { name: "Contact", href: "/about#contact", icon: <FiPhone />, id: "contact" },
   ];
 
@@ -51,9 +53,11 @@ const Navbar = ({ role, onReset, onLogin }) => {
             {/* Logo & Role Badge */}
             <div className="flex items-center gap-4">
               <a href="#home" className="flex items-center gap-3 group">
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${role ? roleColors[role] : 'from-action to-gradient-end'} flex items-center justify-center text-white shadow-lg transform group-hover:rotate-6 transition-transform duration-300`}>
-                  <span className="text-xl font-bold">B</span>
-                </div>
+                <img 
+                  src={logoImg} 
+                  alt="BharatWork Logo" 
+                  className="w-10 h-10 rounded-full object-contain p-1 bg-white shadow-lg transform group-hover:rotate-6 transition-transform duration-300"
+                />
                 <div className="hidden sm:block">
                   <span className="text-xl font-bold text-text-primary">
                     Bharat<span className="text-action">Work</span>
@@ -101,22 +105,13 @@ const Navbar = ({ role, onReset, onLogin }) => {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
               {role ? (
-                <>
                   <button
                     onClick={onReset}
                     className="flex items-center gap-2 px-4 py-2 text-text-secondary font-semibold hover:text-action transition-colors"
                   >
                     <FiArrowLeft className="text-sm" />
-                    Switch
+                    Switch Role
                   </button>
-                  <button
-                    onClick={onLogin}
-                    className="group flex items-center gap-2 bg-gradient-to-r from-action to-gradient-end text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-action/25 transition-all duration-300 hover:-translate-y-0.5"
-                  >
-                    Login
-                    <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </>
               ) : (
                 <a
                   href="#features"
@@ -206,7 +201,6 @@ const Navbar = ({ role, onReset, onLogin }) => {
                 {/* Mobile Actions */}
                 <div className="space-y-3">
                   {role ? (
-                    <>
                       <button
                         onClick={() => {
                           onReset();
@@ -217,17 +211,6 @@ const Navbar = ({ role, onReset, onLogin }) => {
                         <FiArrowLeft />
                         Switch Role
                       </button>
-                      <button
-                        onClick={() => {
-                          onLogin();
-                          setMobileMenuOpen(false);
-                        }}
-                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-action to-gradient-end text-white px-4 py-3 rounded-2xl font-bold shadow-lg"
-                      >
-                        Login as {role === 'employer' ? 'Employer' : 'Worker'}
-                        <FiArrowRight />
-                      </button>
-                    </>
                   ) : (
                     <a
                       href="#features"

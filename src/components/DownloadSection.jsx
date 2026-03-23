@@ -67,13 +67,15 @@ const DownloadSection = ({ role, onLogin }) => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col gap-4">
-                <button
-                  onClick={onLogin}
-                  className="group w-full flex items-center justify-center gap-3 bg-gradient-to-r from-action to-gradient-end text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-                >
-                  Access Web Portal
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                {isEmployer && (
+                  <button
+                    onClick={onLogin}
+                    className="group w-full flex items-center justify-center gap-3 bg-gradient-to-r from-action to-gradient-end text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                  >
+                    Access Web Portal
+                    <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
 
                 <div className="flex gap-4">
                   <a href="#" className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-border-medium text-text-secondary font-semibold hover:border-action hover:text-action transition-all">

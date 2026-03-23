@@ -118,8 +118,8 @@ const Hero = ({ role, onLogin }) => {
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-10">
-              <button
-                onClick={onLogin}
+              <a
+                href="#download"
                 className="group relative flex items-center justify-center gap-3 bg-gradient-to-r from-action to-gradient-end text-white px-8 py-4 rounded-2xl font-bold text-lg overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-action/30 transition-all duration-300 hover:-translate-y-1"
               >
                 <span className="relative z-10 flex items-center gap-3">
@@ -129,7 +129,7 @@ const Hero = ({ role, onLogin }) => {
                   {content.btnText}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gradient-end to-action opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </button>
+              </a>
 
               <button className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-text-primary border-2 border-border-medium hover:border-action hover:text-action transition-all duration-300">
                 <span className="w-10 h-10 rounded-xl bg-action/10 flex items-center justify-center group-hover:bg-action group-hover:text-white transition-colors">

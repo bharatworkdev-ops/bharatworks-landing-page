@@ -210,21 +210,23 @@ const AppSections = ({ role, onLogin }) => {
         </AnimatePresence>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <button
-            onClick={onLogin}
-            className={`group inline-flex items-center gap-3 bg-gradient-to-r ${gradientFrom} ${gradientTo} text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+        {isEmployer && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
           >
-            {isEmployer ? <FaBriefcase /> : <FaHardHat />}
-            Access Interactive Web App
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
-        </motion.div>
+            <button
+              onClick={onLogin}
+              className={`group inline-flex items-center gap-3 bg-gradient-to-r ${gradientFrom} ${gradientTo} text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+            >
+              <FaBriefcase />
+              Access Interactive Web App
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );

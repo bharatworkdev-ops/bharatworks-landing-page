@@ -1,4 +1,5 @@
 import React from "react";
+import logoImg from "../assets/logo.jpeg";
 import {
   FaTwitter,
   FaLinkedinIn,
@@ -20,9 +21,13 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1 border-b md:border-b-0 border-border-light pb-8 md:pb-0">
             <a
               href="#"
-              className="text-2xl font-bold tracking-tight text-text-primary flex items-center gap-2 mb-6"
+              className="text-2xl font-bold tracking-tight text-text-primary flex items-center gap-3 mb-6"
             >
-              <span className="text-action text-3xl">✦</span>
+              <img 
+                src={logoImg} 
+                alt="BharatWork Logo" 
+                className="w-10 h-10 rounded-full object-contain p-1 bg-white"
+              />
               BharatWork
             </a>
             <p className="text-sm text-text-secondary leading-relaxed mb-6">
