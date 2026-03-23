@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
-  FaHardHat, FaWallet, FaCheckCircle, FaStar, 
+import {
+  FaHardHat, FaWallet, FaCheckCircle, FaStar,
   FaArrowRight, FaShieldAlt, FaMobileAlt, FaHandshake,
   FaCalendarCheck, FaChartLine, FaQuestionCircle
 } from "react-icons/fa";
+import logo from "../../assets/hero-mockup.png";
 
 const LabourDashboard = () => {
   const [activeTab, setActiveTab] = useState("tour"); // tour, guide, agent
@@ -75,12 +76,15 @@ const LabourDashboard = () => {
       >
          <div className="absolute inset-0 bg-gradient-to-r from-action/5 via-transparent to-transparent"></div>
          <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-           <div>
-             <span className="inline-block px-3 py-1 bg-action/10 text-action text-xs font-semibold rounded-full mb-3 flex items-center gap-2">
-               <FaHardHat /> Worker Dashboard
-             </span>
-             <h2 className="text-3xl font-bold text-text-primary mb-2">Welcome Back, Ajay</h2>
-             <p className="text-text-secondary text-sm">Empowering you with transparent wages and zero middleman cuts.</p>
+           <div className="flex items-center gap-4">
+             <img src={logo} alt="BharatWork" className="w-12 h-12 rounded-xl object-cover shadow-lg" />
+             <div>
+               <span className="inline-block px-3 py-1 bg-action/10 text-action text-xs font-semibold rounded-full mb-3 flex items-center gap-2">
+                 <FaHardHat /> Worker Dashboard
+               </span>
+               <h2 className="text-3xl font-bold text-text-primary mb-2">Welcome Back, Ajay</h2>
+               <p className="text-text-secondary text-sm">Empowering you with transparent wages and zero middleman cuts.</p>
+             </div>
            </div>
            
            <div className="flex gap-4">

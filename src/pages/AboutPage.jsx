@@ -54,7 +54,7 @@ const AboutPage = () => {
           <div className="flex justify-between items-center">
             <Link to="/" className="text-2xl font-extrabold tracking-tight text-text-primary flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-action to-[#ff9800] flex items-center justify-center text-white shadow-lg transform group-hover:rotate-6 transition-transform">
-                <span className="text-xl">B</span>
+                <img src="src/assets/hero-mockup.png"/>
               </div>
               <span className="hidden sm:inline">
                 Bharat<span className="text-action">Work</span>

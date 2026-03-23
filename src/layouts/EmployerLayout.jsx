@@ -3,7 +3,6 @@ import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaBriefcase, FaArrowLeft, FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
-import logoImg from "../assets/logo.jpeg";
 
 const EmployerLayout = () => {
   const navigate = useNavigate();
@@ -40,13 +39,11 @@ const EmployerLayout = () => {
               )}
               <Link
                 to="/"
-                className="flex items-center gap-3 text-xl font-bold text-text-primary"
+                className="flex items-center gap-2 text-xl font-bold text-text-primary"
               >
-                <img 
-                  src={logoImg} 
-                  alt="BharatWork Logo" 
-                  className="w-10 h-10 rounded-full object-contain p-1 bg-white shadow-sm"
-                />
+                <div className="w-10 h-10 rounded-lg bg-action/10 flex items-center justify-center">
+                  <img src="src/assets/hero-mockup.png"></img>
+                </div>
                 <span className="hidden sm:inline">
                   Bharat<span className="text-action">Work</span>
                 </span>

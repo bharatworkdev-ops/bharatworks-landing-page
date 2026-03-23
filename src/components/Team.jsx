@@ -4,23 +4,24 @@ import { motion } from "framer-motion";
 const Team = () => {
   const teamMembers = [
     {
-      name: "Sarthak Upadhyay",
-      role: "Co-Founder & CTO",
-      description: "Visionary behind BharatWork. Dedicated to transforming the unorganized labor sector into a streamlined, transparent ecosystem.",
-      image: "https://res.cloudinary.com/dgkmzddjv/image/upload/f_auto,q_auto/WhatsApp_Image_2026-03-22_at_6.30.29_PM_idkqfb",
-    },
-    {
       name: "Tejas Aggarwal",
       role: "Founder & CEO",
-      description: "Operational leader ensuring seamless connections between daily wage workers, agents, and enterprise employers nationwide.",
+      description: "Visionary behind BharatWork. Dedicated to transforming the unorganized labor sector into a streamlined, transparent ecosystem.",
+      image: "https://res.cloudinary.com/dgkmzddjv/image/upload/f_auto,q_auto/WhatsApp_Image_2026-03-22_at_6.30.29_PM_idkqfb.jpg",
+    },
+    {
+      name: "Sarthak Upadhyay",
+      role: "Co-Founder & CTO",
+      description: "Operational leader ensuring seamless connections between daily wage workers, agents, and enterprise employers nationwide",
       image: "https://res.cloudinary.com/dgkmzddjv/image/upload/v1774187538/WhatsApp_Image_2026-03-22_at_6.16.21_PM_jk3nex.jpg",
     },
+    ,
     {
       name: "Ayush Pandey",
       role: "Head of Mobile App",
       description: "Expert in mobile technologies ensuring the Labour and Employer apps run flawlessly on all devices.",
       image: "https://ui-avatars.com/api/?name=Developer&background=27AE60&color=fff&size=150",
-    },
+    }
   ];
 
   return (

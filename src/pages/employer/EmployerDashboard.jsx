@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
-  FaBriefcase, FaUsers, FaShieldAlt, FaStar, 
+import {
+  FaBriefcase, FaUsers, FaShieldAlt, FaStar,
   FaArrowRight, FaLock, FaMobileAlt, FaHandshake,
   FaCalendarCheck, FaChartBar, FaQuestionCircle
 } from "react-icons/fa";
+import logo from "../../assets/hero-mockup.png";
 
 const EmployerDashboard = () => {
   const [activeTab, setActiveTab] = useState("tour"); // tour, guide, safety
@@ -80,12 +81,15 @@ const EmployerDashboard = () => {
       >
          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-transparent"></div>
          <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-           <div>
-             <span className="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full mb-3 flex items-center gap-2">
-               <FaBriefcase /> Employer Dashboard
-             </span>
-             <h2 className="text-3xl font-bold text-text-primary mb-2">Welcome Back, Construction Corp</h2>
-             <p className="text-text-secondary text-sm">Reviewing workspace transparent audits & verified teams.</p>
+           <div className="flex items-center gap-4">
+             <img src={logo} alt="BharatWork" className="w-12 h-12 rounded-xl object-cover shadow-lg" />
+             <div>
+               <span className="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full mb-3 flex items-center gap-2">
+                 <FaBriefcase /> Employer Dashboard
+               </span>
+               <h2 className="text-3xl font-bold text-text-primary mb-2">Welcome Back, Construction Corp</h2>
+               <p className="text-text-secondary text-sm">Reviewing workspace transparent audits & verified teams.</p>
+             </div>
            </div>
            
            <div className="flex gap-4">
