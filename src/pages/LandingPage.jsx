@@ -53,7 +53,7 @@ const LandingPage = () => {
 
   if (!role) {
     return (
-      <div className="min-h-screen bg-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden relative font-sans">
+      <div className="min-h-screen bg-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden relative font-sans selection:bg-action/30 selection:text-action">
         {/* Abstract Backgrounds */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-action/10 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#ff9800]/10 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
@@ -121,7 +121,10 @@ const LandingPage = () => {
           </motion.div>
         </div>
 
-        {/* Hero Section */}
+        {/* Main Content Wrapper with consistent styling */}
+      <div className="min-h-screen bg-screen text-text-primary font-sans overflow-x-hidden selection:bg-action/30 selection:text-action">
+
+      {/* Hero Section */}
       <section className="relative pt-24 pb-20 overflow-hidden bg-gradient-to-b from-card to-screen">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-action/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#ff9800]/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
@@ -569,8 +572,9 @@ const LandingPage = () => {
         </div>
       </section>
 
-      
-        <Footer />
+      </div>{/* End Main Content Wrapper */}
+
+      <Footer />
       </div>
     );
   }

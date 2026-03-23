@@ -13,6 +13,7 @@ import {
   FaChartLine,
   FaShieldAlt,
   FaHistory,
+  FaArrowRight,
 } from "react-icons/fa";
 
 const AppSections = ({ role, onLogin }) => {
@@ -20,32 +21,32 @@ const AppSections = ({ role, onLogin }) => {
     {
       icon: <FaPlusCircle />,
       title: "Post Jobs Instantly",
-      description: "Create job postings in seconds with detailed requirements, location, and budget. Reach hundreds of verified workers instantly.",
+      description: "Create job postings in seconds with detailed requirements, location, and budget.",
     },
     {
       icon: <FaSearchLocation />,
       title: "Find Verified Workers",
-      description: "Browse through KYC-verified labour profiles with ratings, reviews, and skill certifications near your location.",
+      description: "Browse through KYC-verified labour profiles with ratings and reviews.",
     },
     {
       icon: <FaRupeeSign />,
       title: "Secure Payments",
-      description: "Pay workers directly through the app with transaction records. No cash handling, complete payment transparency.",
+      description: "Pay workers directly through the app with transaction records.",
     },
     {
       icon: <FaClipboardCheck />,
       title: "Track Projects",
-      description: "Monitor work progress, attendance, and completion status. Keep all your construction projects organized in one place.",
+      description: "Monitor work progress, attendance, and completion status.",
     },
     {
       icon: <FaChartLine />,
       title: "Budget Management",
-      description: "Track expenses across multiple projects. Get insights into labour costs and manage your budget efficiently.",
+      description: "Track expenses across multiple projects with labour cost insights.",
     },
     {
       icon: <FaShieldAlt />,
       title: "Verified & Trusted",
-      description: "All workers are background-verified. Access work history and employer reviews before hiring.",
+      description: "All workers are background-verified with work history access.",
     },
   ];
 
@@ -53,43 +54,49 @@ const AppSections = ({ role, onLogin }) => {
     {
       icon: <FaBriefcase />,
       title: "Find Jobs Near You",
-      description: "Discover daily wage jobs in your area. Get notified about opportunities that match your skills and location.",
+      description: "Discover daily wage jobs in your area with instant notifications.",
     },
     {
       icon: <FaWallet />,
-      title: "Receive Direct Payments",
-      description: "Get paid directly into your bank account or wallet. No middleman, no delays, no payment disputes.",
+      title: "Direct Payments",
+      description: "Get paid directly into your bank account with no middleman.",
     },
     {
       icon: <FaStar />,
       title: "Build Your Profile",
-      description: "Accumulate ratings and reviews from employers. A strong profile means more job opportunities and better pay.",
+      description: "Accumulate ratings and reviews for better job opportunities.",
     },
     {
       icon: <FaBell />,
       title: "Job Alerts",
-      description: "Receive instant notifications for new jobs in your area. Never miss an earning opportunity.",
+      description: "Receive instant notifications for new jobs in your area.",
     },
     {
       icon: <FaHistory />,
       title: "Work History",
-      description: "Track all your completed jobs, total earnings, and work days. Access your complete employment record anytime.",
+      description: "Track all your completed jobs, earnings, and work days.",
     },
     {
       icon: <FaShieldAlt />,
       title: "Secure & Verified",
-      description: "Your profile is verified and protected. Work only with genuine employers and verified job postings.",
+      description: "Work only with genuine employers and verified job postings.",
     },
   ];
 
   if (!role) return null;
 
+  const isEmployer = role === 'employer';
+  const features = isEmployer ? employerFeatures : labourFeatures;
+  const accentColor = isEmployer ? "action" : "amber-500";
+  const gradientFrom = isEmployer ? "from-action" : "from-amber-500";
+  const gradientTo = isEmployer ? "to-gradient-end" : "to-orange-500";
+
   return (
-    <section id="apps" className="py-24 relative overflow-hidden bg-gradient-to-b from-card to-screen">
+    <section id="apps" className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-card via-screen to-card">
       {/* Background Elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-72 h-72 bg-action/10 rounded-full filter blur-[80px] opacity-50"></div>
-        <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-[#ff9800]/10 rounded-full filter blur-[80px] opacity-50"></div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className={`absolute top-1/4 left-0 w-96 h-96 bg-${accentColor}/10 rounded-full filter blur-[120px] opacity-50`}></div>
+        <div className={`absolute bottom-1/4 right-0 w-96 h-96 bg-${isEmployer ? 'gradient-end' : 'orange-500'}/10 rounded-full filter blur-[120px] opacity-50`}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -100,14 +107,24 @@ const AppSections = ({ role, onLogin }) => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-action font-semibold uppercase tracking-wider text-sm mb-3">
-            {role === 'employer' ? 'Employer Portal' : 'Labour Portal'}
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
-            {role === 'employer' ? 'Powerful Tools for Hiring' : 'Everything You Need to Earn'}
+          {/* Badge */}
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-${accentColor}/10 border border-${accentColor}/20 mb-6`}>
+            <span className={`w-2 h-2 rounded-full bg-${accentColor}`}></span>
+            <span className={`text-${accentColor} font-semibold text-sm tracking-wider uppercase`}>
+              {isEmployer ? 'Employer Portal' : 'Worker Portal'}
+            </span>
+          </div>
+
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+            {isEmployer ? (
+              <>Powerful Tools for{" "}<span className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-clip-text text-transparent`}>Hiring</span></>
+            ) : (
+              <>Everything You Need to{" "}<span className={`bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-clip-text text-transparent`}>Earn</span></>
+            )}
           </h3>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            {role === 'employer' 
+
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            {isEmployer
               ? "BharatWork provides tailored experiences to easily manage hiring, attendance, and payouts."
               : "Discover opportunities, manage your incoming wages, and build trust within the ecosystem."}
           </p>
@@ -115,159 +132,98 @@ const AppSections = ({ role, onLogin }) => {
 
         {/* Content */}
         <AnimatePresence mode="wait">
-          {role === 'employer' ? (
-            <motion.div
-              key="employer"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              <div className="md:col-span-2 lg:col-span-3 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="bg-gradient-to-r from-action/20 to-action/5 rounded-3xl p-8 border border-action/20"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 bg-action/20 rounded-2xl hidden sm:block">
-                      <FaBriefcase className="text-4xl text-action" />
-                    </div>
-                    <div>
-                      <h4 className="text-2xl md:text-3xl font-bold text-text-primary mb-3">
-                        Employer Platform Overview
-                      </h4>
-                      <p className="text-text-secondary text-lg leading-relaxed mb-4">
-                        Post jobs, hire verified workers, and manage your projects all in one place.
-                        The Employer Portal gives you complete control over your hiring process with
-                        transparent payments and real-time tracking.
-                      </p>
-                      <div className="flex flex-wrap gap-3">
-                        <span className="px-4 py-2 bg-action/20 rounded-full text-action font-semibold text-sm">
-                          Post Jobs
-                        </span>
-                        <span className="px-4 py-2 bg-action/20 rounded-full text-action font-semibold text-sm">
-                          Hire Workers
-                        </span>
-                        <span className="px-4 py-2 bg-action/20 rounded-full text-action font-semibold text-sm">
-                          Track Projects
-                        </span>
-                        <span className="px-4 py-2 bg-action/20 rounded-full text-action font-semibold text-sm">
-                          Secure Payments
-                        </span>
-                      </div>
-                    </div>
+          <motion.div
+            key={role}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {/* Overview Card */}
+            <div className="md:col-span-2 lg:col-span-3 mb-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+                className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${gradientFrom}/10 ${gradientTo}/5 border border-${accentColor}/20 p-8 lg:p-10`}
+              >
+                <div className={`absolute top-0 right-0 w-64 h-64 bg-${accentColor}/10 rounded-full filter blur-[80px] -translate-y-1/2 translate-x-1/2`}></div>
+
+                <div className="relative flex flex-col lg:flex-row items-start lg:items-center gap-6">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center text-white text-3xl shadow-xl`}>
+                    {isEmployer ? <FaBriefcase /> : <FaHardHat />}
                   </div>
-                </motion.div>
-              </div>
-              {employerFeatures.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.1 }}
-                  className="group glass p-6 rounded-2xl border border-border-light hover:border-action/50 transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-action/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-action/20 transition-all duration-300">
-                    <div className="text-action text-2xl">{feature.icon}</div>
+
+                  <div className="flex-1">
+                    <h4 className="text-2xl lg:text-3xl font-bold text-text-primary mb-3">
+                      {isEmployer ? 'Employer Platform Overview' : 'Worker Platform Overview'}
+                    </h4>
+                    <p className="text-text-secondary text-lg leading-relaxed max-w-2xl">
+                      {isEmployer
+                        ? "Post jobs, hire verified workers, and manage your projects all in one place. Complete control over your hiring process with transparent payments."
+                        : "Find daily wage jobs near you, get paid directly, and build your work reputation. Empowering workers with direct access to opportunities."}
+                    </p>
                   </div>
-                  <h4 className="text-lg font-bold text-text-primary mb-2">
+
+                  <div className="flex flex-wrap gap-2">
+                    {(isEmployer
+                      ? ["Post Jobs", "Hire Workers", "Track Projects", "Secure Payments"]
+                      : ["Find Jobs", "Get Paid Direct", "Build Profile", "Track Earnings"]
+                    ).map((tag) => (
+                      <span key={tag} className={`px-4 py-2 rounded-full bg-${accentColor}/10 text-${accentColor} font-semibold text-sm border border-${accentColor}/20`}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Feature Cards */}
+            {features.map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + idx * 0.08 }}
+                className="group relative bg-white rounded-2xl border border-border-medium/50 overflow-hidden card-hover"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${gradientFrom}/5 ${gradientTo}/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+                <div className="relative p-6">
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center text-white text-2xl shadow-lg mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                    {feature.icon}
+                  </div>
+
+                  <h4 className="text-lg font-bold text-text-primary mb-2 group-hover:text-action transition-colors">
                     {feature.title}
                   </h4>
+
                   <p className="text-text-secondary text-sm leading-relaxed">
                     {feature.description}
                   </p>
-                </motion.div>
-              ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              key="labour"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              <div className="md:col-span-2 lg:col-span-3 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="bg-gradient-to-r from-[#ff9800]/20 to-[#ff9800]/5 rounded-3xl p-8 border border-[#ff9800]/20"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 bg-[#ff9800]/20 rounded-2xl hidden sm:block">
-                      <FaHardHat className="text-4xl text-[#ff9800]" />
-                    </div>
-                    <div>
-                      <h4 className="text-2xl md:text-3xl font-bold text-text-primary mb-3">
-                        Worker Platform Overview
-                      </h4>
-                      <p className="text-text-secondary text-lg leading-relaxed mb-4">
-                        Find daily wage jobs near you, get paid directly, and build your
-                        work reputation. The Labour Portal empowers workers with direct access
-                        to opportunities and secure payments.
-                      </p>
-                      <div className="flex flex-wrap gap-3">
-                        <span className="px-4 py-2 bg-[#ff9800]/20 rounded-full text-[#ff9800] font-semibold text-sm">
-                          Find Jobs
-                        </span>
-                        <span className="px-4 py-2 bg-[#ff9800]/20 rounded-full text-[#ff9800] font-semibold text-sm">
-                          Get Paid Direct
-                        </span>
-                        <span className="px-4 py-2 bg-[#ff9800]/20 rounded-full text-[#ff9800] font-semibold text-sm">
-                          Build Profile
-                        </span>
-                        <span className="px-4 py-2 bg-[#ff9800]/20 rounded-full text-[#ff9800] font-semibold text-sm">
-                          Track Earnings
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-              {labourFeatures.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.1 }}
-                  className="group glass p-6 rounded-2xl border border-border-light hover:border-[#ff9800]/50 transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-[#ff9800]/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[#ff9800]/20 transition-all duration-300">
-                    <div className="text-[#ff9800] text-2xl">{feature.icon}</div>
-                  </div>
-                  <h4 className="text-lg font-bold text-text-primary mb-2">
-                    {feature.title}
-                  </h4>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </AnimatePresence>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row gap-4">
-             <button
-               onClick={onLogin}
-               className="inline-flex items-center justify-center gap-3 bg-action hover:bg-[#e66000] text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:-translate-y-1 text-lg"
-             >
-               {role === 'employer' ? <FaBriefcase /> : <FaHardHat />}
-               Access Interactive Web App
-             </button>
-          </div>
+          <button
+            onClick={onLogin}
+            className={`group inline-flex items-center gap-3 bg-gradient-to-r ${gradientFrom} ${gradientTo} text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+          >
+            {isEmployer ? <FaBriefcase /> : <FaHardHat />}
+            Access Interactive Web App
+            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </button>
         </motion.div>
       </div>
     </section>

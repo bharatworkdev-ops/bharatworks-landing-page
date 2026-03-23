@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(node --check /home/tejasagarwal/Desktop/bharatworks-landing-page/src/components/Features.jsx)"
     ]
   }
 }
