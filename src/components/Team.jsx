@@ -5,15 +5,15 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Sarthak Upadhyay",
-      role: "Founder & CEO",
+      role: "Co-Founder & CTO",
       description: "Visionary behind BharatWork. Dedicated to transforming the unorganized labor sector into a streamlined, transparent ecosystem.",
-      image: "https://res.cloudinary.com/dgkmzddjv/image/upload/v1774187538/WhatsApp_Image_2026-03-22_at_6.16.21_PM_jk3nex.jpg",
+      image: "https://res.cloudinary.com/dgkmzddjv/image/upload/f_auto,q_auto/WhatsApp_Image_2026-03-22_at_6.30.29_PM_idkqfb",
     },
     {
       name: "Tejas Aggarwal",
-      role: "Co-Founder & CTO",
+      role: "Founder & CEO",
       description: "Operational leader ensuring seamless connections between daily wage workers, agents, and enterprise employers nationwide.",
-      image: "https://res.cloudinary.com/dgkmzddjv/image/upload/f_auto,q_auto/WhatsApp_Image_2026-03-22_at_6.30.29_PM_idkqfb",
+      image: "https://res.cloudinary.com/dgkmzddjv/image/upload/v1774187538/WhatsApp_Image_2026-03-22_at_6.16.21_PM_jk3nex.jpg",
     },
     {
       name: "Ayush Pandey",
